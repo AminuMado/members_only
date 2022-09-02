@@ -4,4 +4,16 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+    nav.nav
+      div.nav__left
+        a(href="/")
+          img(src="../images/logo.png" alt="logo" class="nav__left_logo")
+        p.nav__left_title Members Only 
+
+      div.nav__right
+        //- p.hover-underline-animation Profile 
+        a(href="/signup")
+          p.hover-underline-animation Sign Up 
+        a(href="/login")
+          p.hover-underline-animation Log In
     block content
