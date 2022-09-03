@@ -24,4 +24,14 @@ router.get("/login", function (req, res, next) {
   res.render("login_form", { title: "Login" });
 });
 
+/* Profile Page. */
+router.get("/profile", function (req, res, next) {
+  res.render("profile", { title: "Profile" });
+});
+
+/* Create Message Page. */
+router.get("/create-message", function (req, res, next) {
+  res.render("create_message", { title: "Create Message" });
+});
+
 module.exports = router;
