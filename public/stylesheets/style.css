@@ -5,6 +5,7 @@
 }
 body {
   background-color: whitesmoke;
+  padding: 10px 10px 20px 10px;
 }
 
 a {
@@ -13,14 +14,7 @@ a {
   color: inherit;
 }
 .main-container {
-  background-image: url("../images/7.jpg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  background-color: #999999;
-  width: 100vw;
-  height: 100vh;
-  padding: 10px;
+  margin-top: 5em;
 }
 /* Nav */
 .nav {
@@ -28,7 +22,6 @@ a {
   width: 100%;
   justify-content: space-between;
   padding: 0 10px;
-  position: absolute;
 }
 .nav__left {
   display: flex;
@@ -109,6 +102,7 @@ a {
 }
 input[type="radio"] {
   visibility: hidden;
+  position: absolute;
 }
 input[type="radio"] + label img:hover {
   cursor: pointer;
@@ -118,7 +112,7 @@ input[type="radio"] + label img {
 }
 input[type="radio"]:checked + label img {
   border-radius: 18px;
-  background: rgb(204, 200, 200);
+  background: lime;
   padding: 5px;
   transition: all 0.3s ease;
 }
@@ -141,7 +135,8 @@ input[type="radio"]:checked + label img {
   gap: 10px;
 }
 .avatar-container img {
-  width: 70px;
+  width: 100px;
+  border-radius: 50%;
 }
 /* Overlay */
 .overlay {
@@ -182,4 +177,46 @@ input[type="radio"]:checked + label img {
 .hover-underline-animation:hover:after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+/* Posts */
+.posts-container {
+  display: grid;
+  gap: 3.5em;
+  place-content: center;
+}
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 40em;
+  min-height: 8em;
+  padding: 18px;
+  margin: 5px;
+  border-radius: 18px;
+  background: rgb(229 231 235);
+  padding: 10px 80px;
+  gap: 5px;
+}
+.post__avatar {
+  border-radius: 50%;
+  width: 140px;
+  position: absolute;
+  top: -65px;
+  left: -65px;
+}
+.post__username {
+  align-self: flex-start;
+  font-size: larger;
+}
+.post__title {
+  align-self: flex-start;
+  font-size: large;
+}
+.post__content {
+  text-align: justify;
+  font-size: medium;
+}
+.post__timestamp {
+  align-self: flex-end;
 }
