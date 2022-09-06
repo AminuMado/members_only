@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background-color: whitesmoke;
+  background-color: #f0f2ef;
   padding: 10px 10px 20px 10px;
 }
 
@@ -140,7 +140,7 @@ input[type="radio"]:checked + label img {
 }
 .avatar-container {
   display: flex;
-  width: 25em;
+  width: 27em;
   gap: 10px;
 }
 .avatar-container img {
@@ -203,13 +203,13 @@ input[type="radio"]:checked + label img {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-/* Posts */
-.posts-container {
+/* Messages */
+.messages-container {
   display: grid;
   gap: 3.5em;
   place-content: center;
 }
-.post {
+.message {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -223,7 +223,7 @@ input[type="radio"]:checked + label img {
   padding: 10px 80px;
   gap: 5px;
 }
-.post__delete {
+.message__delete {
   width: 2em;
   position: absolute;
   top: 5px;
@@ -231,34 +231,35 @@ input[type="radio"]:checked + label img {
   transition: all 0.3s ease;
   cursor: pointer;
 }
-.post__delete:hover {
+.message__delete:hover {
   transform: scale(1.05);
 }
-.post__avatar {
+.message__avatar {
   border-radius: 50%;
   width: 140px;
   position: absolute;
   top: -65px;
   left: -65px;
 }
-.post__username {
+.message__username {
   align-self: flex-start;
   font-size: larger;
 }
-.post__title {
+.message__title {
   align-self: flex-start;
   font-size: large;
 }
-.post__content {
+.message__content {
   text-align: justify;
   font-size: medium;
 }
-.post__timestamp {
+.message__timestamp {
   align-self: flex-end;
 }
 /* Profile */
 .profile-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -279,5 +280,6 @@ input[type="radio"]:checked + label img {
   font-size: 25px;
 }
 .profile__avatar {
-  width: 25em;
+  width: 22em;
+  border-radius: 60px;
 }
