@@ -1,33 +1,39 @@
 extends layout
 
 block content
-    .profile-container 
-        .profile-container-left
-            img(src="/images/avatar.jpg" class='profile__avatar') 
-            p.profile__username The Man Himself
-        .profile-container-right
-           form(method="POST" action="" class="form")
-            .form-item
-                label(for="isAdmin") Is Admin?
-                input(type = "checkbox" id="isAdmin" name="isAdmin")
-                label(for="isMember") Is Member?
-                input(type = "checkbox" id="isMember" name="isMember")
-            h4 Update Your Avatar
-            div.avatar-container
-                input(type="radio" id="avatar_1" name="avatar" value="avatar_1")
-                label(for="avatar_1")
-                    img(src="/images/avatar_1.jpg" alt="avatar")
-                input(type="radio" id="avatar_2" name="avatar" value="avatar_2")
-                label(for="avatar_2")
-                    img(src="/images/avatar_2.jpg" alt="avatar")
-                input(type="radio" id="avatar_3" name="avatar" value="avatar_3")
-                label(for="avatar_3")
-                    img(src="/images/avatar_3.jpg" alt="avatar")
-                input(type="radio" id="avatar_4" name="avatar" value="avatar_4")
-                label(for="avatar_4")
-                    img(src="/images/avatar_4.jpg" alt="avatar")
-                input(type="radio" id="avatar_5" name="avatar" value="avatar_5")
-                label(for="avatar_5")
-                    img(src="/images/avatar_5.jpg" alt="avatar")
-            input(type = "password" id="secretPassword" name="secretPassword" placeholder="Secret Password" required )
-            button(type = "submit") Update Profile
+    if(user)
+        .profile-container 
+            .profile-container-left
+                img(src=`/images/${user.avatar}.jpg` class='profile__avatar') 
+                p.profile__username= user.username
+            .profile-container-right
+               form(method="POST" action="" class="form")
+                .form-item
+                    label(for="isAdmin") Is Admin?
+                    input(type = "checkbox" id="isAdmin" name="isAdmin")
+                    label(for="isMember") Is Member?
+                    input(type = "checkbox" id="isMember" name="isMember")
+                h4 Update Your Avatar
+                div.avatar-container
+                    input(type="radio" id="avatar_1" name="avatar" value="avatar_1")
+                    label(for="avatar_1")
+                        img(src="/images/avatar_1.jpg" alt="avatar")
+                    input(type="radio" id="avatar_2" name="avatar" value="avatar_2")
+                    label(for="avatar_2")
+                        img(src="/images/avatar_2.jpg" alt="avatar")
+                    input(type="radio" id="avatar_3" name="avatar" value="avatar_3")
+                    label(for="avatar_3")
+                        img(src="/images/avatar_3.jpg" alt="avatar")
+                    input(type="radio" id="avatar_4" name="avatar" value="avatar_4")
+                    label(for="avatar_4")
+                        img(src="/images/avatar_4.jpg" alt="avatar")
+                    input(type="radio" id="avatar_5" name="avatar" value="avatar_5")
+                    label(for="avatar_5")
+                        img(src="/images/avatar_5.jpg" alt="avatar")
+                input(type = "password" id="secretPassword" name="secretPassword" placeholder="Secret Password" required )
+                button(type = "submit") Update Profile
+    else 
+        div.login-container
+            img(src="/images/avatar.jpg" class="login__avatar")
+            h1.login__header Not Logged In
+            a.login__link(href="/login") Go to Login

@@ -1,32 +1,38 @@
 extends layout
 
 block content
- div.form-container
-    h1= title
-    form(method="POST" action="" class="form")
-        input(type = "text" id="username" name="username" placeholder="Username" required )
-        input(type = "password" id="password" name="password" placeholder="Password" required )
-        input(type = "password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required )
-        h4 Choose your Avatar
-        div.avatar-container
-            input(type="radio" id="avatar_1" name="avatar" value="avatar_1")
-            label(for="avatar_1")
-                img(src="/images/avatar_1.jpg" alt="avatar")
-            input(type="radio" id="avatar_2" name="avatar" value="avatar_2")
-            label(for="avatar_2")
-                img(src="/images/avatar_2.jpg" alt="avatar")
-            input(type="radio" id="avatar_3" name="avatar" value="avatar_3")
-            label(for="avatar_3")
-                img(src="/images/avatar_3.jpg" alt="avatar")
-            input(type="radio" id="avatar_4" name="avatar" value="avatar_4")
-            label(for="avatar_4")
-                img(src="/images/avatar_4.jpg" alt="avatar")
-            input(type="radio" id="avatar_5" name="avatar" value="avatar_5")
-            label(for="avatar_5")
-                img(src="/images/avatar_5.jpg" alt="avatar")
-        button(type = "submit") Submit
-        a(href="/login") Already have an account?
-        if errors 
-            ul 
-            for error in errors
-                li!= error.msg
+    if (user)
+        div.signup-container
+            img(src="/images/avatar.jpg" class="signup__avatar")
+            h1.signup__header You're already Signed Up
+            a.signup__link(href="/") Go to Homepage
+    else
+        div.form-container
+            h1= title
+            form(method="POST" action="" class="form")
+                input(type = "text" id="username" name="username" placeholder="Username" required )
+                input(type = "password" id="password" name="password" placeholder="Password" required )
+                input(type = "password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required )
+                h4 Choose your Avatar
+                div.avatar-container
+                    input(type="radio" id="avatar_1" name="avatar" value="avatar_1")
+                    label(for="avatar_1")
+                        img(src="/images/avatar_1.jpg" alt="avatar")
+                    input(type="radio" id="avatar_2" name="avatar" value="avatar_2")
+                    label(for="avatar_2")
+                        img(src="/images/avatar_2.jpg" alt="avatar")
+                    input(type="radio" id="avatar_3" name="avatar" value="avatar_3")
+                    label(for="avatar_3")
+                        img(src="/images/avatar_3.jpg" alt="avatar")
+                    input(type="radio" id="avatar_4" name="avatar" value="avatar_4")
+                    label(for="avatar_4")
+                        img(src="/images/avatar_4.jpg" alt="avatar")
+                    input(type="radio" id="avatar_5" name="avatar" value="avatar_5")
+                    label(for="avatar_5")
+                        img(src="/images/avatar_5.jpg" alt="avatar")
+                button(type = "submit") Submit
+                a(href="/login") Already have an account?
+                if errors 
+                    ul 
+                    for error in errors
+                        li!= error.msg
