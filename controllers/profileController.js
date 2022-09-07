@@ -1,5 +1,5 @@
 exports.profile_get = (req, res) => {
-  res.render("profile", { title: "Profile" });
+  res.render("profile", { title: "Profile", user: res.locals.currentUser });
 };
 
 exports.profile_post = (req, res) => {
