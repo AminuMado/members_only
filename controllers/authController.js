@@ -1,18 +1,35 @@
 const { body, validationResult } = require("express-validator");
+const passport = require("passport");
 const bcrypt = require("bcryptjs");
 const User = require("../models/user");
+
+/* Log In. */
+
 exports.login_get = (req, res) => {
   res.render("login_form", { title: "Login" });
 };
-exports.login_post = (req, res) => {
-  res.send(
-    `Not Implemented: username:${req.body.username} password:${req.body.password}`
-  );
+
+exports.login_post = passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/login",
+  failureFlash: true,
+});
+
+/* Log Out. */
+
+exports.logout_get = (req, res) => {
+  req.logout(function (err) {
+    if (err) return next(err);
+    res.redirect("/");
+  });
 };
+
+/* Sign Up */
 
 exports.signup_get = (req, res) => {
   res.render("signup_form", { title: "Sign Up" });
 };
+
 exports.signup_post = [
   // Validate and sanitize fields
   body("username")
