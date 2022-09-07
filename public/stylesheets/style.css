@@ -283,3 +283,47 @@ input[type="radio"]:checked + label img {
   width: 22em;
   border-radius: 60px;
 }
+/* Login when signed in  */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.login__header {
+  font-size: 3.5em;
+}
+.login__link {
+  font-size: 1.5em;
+  transition: all 0.3s ease;
+}
+.login__link:hover {
+  color: #34a3cf;
+}
+.login__avatar {
+  width: 30em;
+  border-radius: 50%;
+}
+/* signup when signed in  */
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.signup__header {
+  font-size: 3.5em;
+}
+.signup__link {
+  font-size: 1.5em;
+  transition: all 0.3s ease;
+}
+.signup__link:hover {
+  color: rgb(83, 138, 1);
+}
+.signup__avatar {
+  width: 30em;
+  border-radius: 50%;
+}
