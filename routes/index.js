@@ -3,6 +3,7 @@ var router = express.Router();
 const authController = require("../controllers/authController");
 const messageController = require("../controllers/messageController");
 const profileController = require("../controllers/profileController");
+const indexController = require("../controllers/indexController");
 /**
  * -------------- POST ROUTES ----------------
  */
@@ -16,9 +17,7 @@ router.post("/profile", profileController.profile_post);
  */
 
 /* Home page. */
-router.get("/", function (req, res, next) {
-  res.render("index", { title: "Members Only" });
-});
+router.get("/", indexController.index);
 
 /* Sign Up Page. */
 router.get("/signup", authController.signup_get);
