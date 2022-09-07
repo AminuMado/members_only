@@ -11,15 +11,17 @@ html
         p.nav__left_title Members Only 
 
       div.nav__right
-        a(href="/signup")
-          p.hover-underline-animation Sign Up 
-        a(href="/login")
-          p.hover-underline-animation Log In
-        a(href="/create-message")
-          p.hover-underline-animation Create Message 
-        a(href="/profile")
-          p.hover-underline-animation Profile
-        a(href="/logout")
-          p.hover-underline-animation Log Out 
+         if (user)
+          a(href="/create-message")
+            p.hover-underline-animation Create Message 
+          a(href="/profile")
+            p.hover-underline-animation Profile
+          a(href="/logout")
+            p.hover-underline-animation Log Out 
+         else
+          a(href="/signup")
+            p.hover-underline-animation Sign Up 
+          a(href="/login")
+            p.hover-underline-animation Log In
         
     block content
