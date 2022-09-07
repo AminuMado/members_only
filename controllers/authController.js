@@ -6,7 +6,7 @@ const User = require("../models/user");
 /* Log In. */
 
 exports.login_get = (req, res) => {
-  res.render("login_form", { title: "Login" });
+  res.render("login_form", { title: "Login", user: res.locals.currentUser });
 };
 
 exports.login_post = passport.authenticate("local", {
@@ -27,7 +27,7 @@ exports.logout_get = (req, res) => {
 /* Sign Up */
 
 exports.signup_get = (req, res) => {
-  res.render("signup_form", { title: "Sign Up" });
+  res.render("signup_form", { title: "Sign Up", user: res.locals.currentUser });
 };
 
 exports.signup_post = [
@@ -65,6 +65,7 @@ exports.signup_post = [
         errors: errors.array(),
         success: [],
         title: "Sign Up",
+        user: req.locals.currentUser,
       });
     }
     // Check if the username from the request is in the database.
