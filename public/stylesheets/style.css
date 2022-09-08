@@ -252,6 +252,8 @@ input[type="radio"]:checked + label img {
 .message__content {
   text-align: justify;
   font-size: medium;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 .message__timestamp {
   align-self: flex-end;
@@ -326,4 +328,16 @@ input[type="radio"]:checked + label img {
 .signup__avatar {
   width: 30em;
   border-radius: 50%;
+}
+/* Delete */
+.delete-header {
+  font-size: 30px;
+  color: crimson;
+}
+.delete-button {
+  color: gainsboro;
+  background-color: crimson;
+}
+.form .delete-button:hover {
+  background-color: #c81d25;
 }
