@@ -91,7 +91,6 @@ app.use(express.urlencoded({ extended: false }));
 // Access the user object from anywhere in our application
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
-  console.log(req.user);
   next();
 });
 // view engine setup
