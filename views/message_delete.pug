@@ -3,12 +3,19 @@ extends layout
 block content
   if user
     div.form-container
-        p Do you really want to delete this Message?
-            form(method= "POST" action='')
+        .message 
+            img(src=`/images/${message.user.avatar}.jpg` class="message__avatar")
+            p.message__username= message.user.username
+            h4.message__title= message.title
+            p.message__content= message.content
+            p.message__timestamp= message.timestamp
+        p.delete-header Do you really want to delete this Message?
+            form(method= "POST" action='' class="form")
                 input(id= "messageId" type='hidden' name = "messageId" required="true" value = message._id)
-                button(type = "submit") Delete
+                button.delete-button(type = "submit") Delete
+   
   else
-    div.login-container
-      img(src="/images/avatar.jpg" class="login__avatar")
-      h1.login__header You're already Logged In 
-      a.login__link(href="/") Go to Homepage
+        div.login-container
+            img(src="/images/avatar.jpg" class="login__avatar")
+            h1.login__header Oops Gotta Login first
+            a.login__link(href="/login") Go to Login
