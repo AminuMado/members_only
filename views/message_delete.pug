@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  if user
+    div.form-container
+        p Do you really want to delete this Message?
+            form(method= "POST" action='')
+                input(id= "messageId" type='hidden' name = "messageId" required="true" value = message._id)
+                button(type = "submit") Delete
+  else
+    div.login-container
+      img(src="/images/avatar.jpg" class="login__avatar")
+      h1.login__header You're already Logged In 
+      a.login__link(href="/") Go to Homepage
