@@ -6,7 +6,8 @@ block content
       each message in messages
         .message 
           img(src=`/images/${message.user.avatar}.jpg` class="message__avatar")
-          img(src="/images/trash.png" class="message__delete")
+          a(href=`/message/${message._id}/delete`)
+            img(src="/images/trash.png" class="message__delete")
           p.message__username= message.user.username
           h4.message__title= message.title
           p.message__content= message.content
