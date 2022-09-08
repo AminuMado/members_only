@@ -45,11 +45,22 @@ exports.create_message_post = [
     });
   },
 ];
-
-exports.delete_message_post = (req, res, next) => {
-  // Remove the message using the id from the database
-  Message.findByIdAndRemove(req.body.messageId, function deleteMessage(err) {
-    if (err) return next(err);
+exports.delete_message_get = async (req, res, next) => {
+  try {
+    // Find the message on the db
+    const message = await Message.findById(req.params.id).populate("user");
+    res.render("message_delete", { user: res.locals.currentUser, message });
+  } catch (err) {
+    return next(err);
+  }
+};
+exports.delete_message_post = async (req, res, next) => {
+  try {
+    // Remove the message using the id from the database
+    await Message.findByIdAndRemove(req.body.messageId);
+    // Success... Message has been deleted, go to homepage
     res.redirect("/");
-  });
+  } catch (err) {
+    return next(err);
+  }
 };
