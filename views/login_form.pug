@@ -15,6 +15,6 @@ block content
         button(type = "submit") Submit
         a(href="/signup") Don't have an account?
         if errors 
-            ul 
+          ul 
             for error in errors
-                li!= error.msg
+              li.error!= error.msg

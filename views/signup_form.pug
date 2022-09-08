@@ -34,5 +34,5 @@ block content
                 a(href="/login") Already have an account?
                 if errors 
                     ul 
-                    for error in errors
-                        li!= error.msg
+                        for error in errors
+                            li.error!= error.msg
