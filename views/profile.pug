@@ -9,29 +9,34 @@ block content
             .profile-container-right
                form(method="POST" action="" class="form")
                 .form-item
-                    label(for="isAdmin") Is Admin?
-                    input(type = "checkbox" id="isAdmin" name="isAdmin")
+                    label(for="isAdmin") Is Admin?  
+                    input(type = "checkbox" id="isAdmin" name="isAdmin" checked=user.admin)
                     label(for="isMember") Is Member?
-                    input(type = "checkbox" id="isMember" name="isMember")
+                    input(type = "checkbox" id="isMember" name="isMember" checked=user.member)
                 h4 Update Your Avatar
                 div.avatar-container
-                    input(type="radio" id="avatar_1" name="avatar" value="avatar_1")
+                    input(type="radio" id="avatar_1" name="avatar" value="avatar_1" checked= user.avatar == "avatar_1" ? "": null)
                     label(for="avatar_1")
                         img(src="/images/avatar_1.jpg" alt="avatar")
-                    input(type="radio" id="avatar_2" name="avatar" value="avatar_2")
+                    input(type="radio" id="avatar_2" name="avatar" value="avatar_2" checked= user.avatar == "avatar_2" ? "": null)
                     label(for="avatar_2")
                         img(src="/images/avatar_2.jpg" alt="avatar")
-                    input(type="radio" id="avatar_3" name="avatar" value="avatar_3")
+                    input(type="radio" id="avatar_3" name="avatar" value="avatar_3" checked= user.avatar == "avatar_3" ? "": null)
                     label(for="avatar_3")
                         img(src="/images/avatar_3.jpg" alt="avatar")
-                    input(type="radio" id="avatar_4" name="avatar" value="avatar_4")
+                    input(type="radio" id="avatar_4" name="avatar" value="avatar_4" checked= user.avatar == "avatar_4" ? "": null)
                     label(for="avatar_4")
                         img(src="/images/avatar_4.jpg" alt="avatar")
-                    input(type="radio" id="avatar_5" name="avatar" value="avatar_5")
+                    input(type="radio" id="avatar_5" name="avatar" value="avatar_5" checked= user.avatar == "avatar_5" ? "": null)
                     label(for="avatar_5")
                         img(src="/images/avatar_5.jpg" alt="avatar")
                 input(type = "password" id="secretPassword" name="secretPassword" placeholder="Secret Password" required )
+                input(id= "userId" type='hidden' name = "userId" required="true" value = user._id)
                 button(type = "submit") Update Profile
+        if errors 
+            ul
+                for error in errors
+                    li.error!= error.msg 
     else 
         div.login-container
             img(src="/images/avatar.jpg" class="login__avatar")
