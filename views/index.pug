@@ -2,42 +2,60 @@ extends layout
 
 block content
   section.main-container
-    if(user && user.admin)
-      .messages-container 
-        each message in messages
+    if(messages.length)
+      if(user && user.admin)
+        .messages-container 
+          each message in messages
+            .message 
+              img(src=`/images/${message.user.avatar}.jpg` class="message__avatar")
+              a(href=`/message/${message._id}/delete`)
+                img(src="/images/trash.png" class="message__delete")
+              p.message__username= message.user.username
+              h4.message__title= message.title
+              p.message__content= message.content
+              p.message__timestamp= `${message.timestamp_calendar} | ${message.timestamp_time}`
+      else if (user && user.member)
+        .messages-container 
+          each message in messages
+            .message 
+              img(src=`/images/${message.user.avatar}.jpg` class="message__avatar")
+              p.message__username= message.user.username
+              h4.message__title= message.title
+              p.message__content= message.content
+              p.message__timestamp= `${message.timestamp_calendar} | ${message.timestamp_time}`
+      else
+        .messages-container 
           .message 
-            img(src=`/images/${message.user.avatar}.jpg` class="message__avatar")
-            a(href=`/message/${message._id}/delete`)
-              img(src="/images/trash.png" class="message__delete")
-            p.message__username= message.user.username
-            h4.message__title= message.title
-            p.message__content= message.content
-            p.message__timestamp= `${message.timestamp_calendar} | ${message.timestamp_time}`
-    else if (user && user.member)
-      .messages-container 
-        each message in messages
-          .message 
-            img(src=`/images/${message.user.avatar}.jpg` class="message__avatar")
-            p.message__username= message.user.username
-            h4.message__title= message.title
-            p.message__content= message.content
-            p.message__timestamp= `${message.timestamp_calendar} | ${message.timestamp_time}`
+            img(src=`/images/avatar.jpg` class="message__avatar")
+            p.message__username The Admin
+            h4.message__title First Time?
+            p.message__content Welcome to members only, Sign up and become a member to see the messages. To become a member follow these steps 
+            | Sign Up |
+            | Log In |
+            | Go to Profile | 
+            | Update Member Status
+            p.message__timestamp= `#### | ####`
+          each message in messages
+            .message 
+              img(src=`/images/avatar.jpg` class="message__avatar message__avatar-blurred")
+              p.message__username Redacted
+              h4.message__title= message.title
+              p.message__content Redacted
+              p.message__timestamp= `#### | ####`
     else
-      .messages-container 
-        .message 
-          img(src=`/images/avatar.jpg` class="message__avatar")
-          p.message__username The Admin
-          h4.message__title First Time?
-          p.message__content Welcome to members only, Sign up and become a member to see the messages. To become a member follow these steps 
-          | Sign Up |
-          | Log In |
-          | Go to Profile | 
-          | Update Member Status
-          p.message__timestamp= `#### | ####`
-        each message in messages
+      if(user)
+        div.empty-container
+          img(src="/images/avatar.jpg" class="empty__avatar")
+          h1.empty__header Wow, You had to delete everything eh? Remember to make a post before you leave.
+          a.empty__link(href="/create-message") Create a Message
+      else 
+        .messages-container
           .message 
-            img(src=`/images/avatar.jpg` class="message__avatar message__avatar-blurred")
-            p.message__username Redacted
-            h4.message__title= message.title
-            p.message__content Redacted
+            img(src=`/images/avatar.jpg` class="message__avatar")
+            p.message__username The Admin
+            h4.message__title First Time?
+            p.message__content 
+              p Welcome to members only, Sign up and become a member to see the messages. 
+              p To become a member follow these steps.
+              p Sign Up | Log In | Go to Profile | Update Member Status
             p.message__timestamp= `#### | ####`
