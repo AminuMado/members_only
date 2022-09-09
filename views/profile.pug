@@ -30,7 +30,7 @@ block content
                     input(type="radio" id="avatar_5" name="avatar" value="avatar_5" checked= user.avatar == "avatar_5" ? "": null)
                     label(for="avatar_5")
                         img(src="/images/avatar_5.jpg" alt="avatar")
-                input(type = "password" id="secretPassword" name="secretPassword" placeholder="Secret Password" required )
+                input(type = "password" id="secretPassword" name="secretPassword" placeholder="Secret Password = TheOdinProject" required )
                 input(id= "userId" type='hidden' name = "userId" required="true" value = user._id)
                 button(type = "submit") Update Profile
         if errors 
