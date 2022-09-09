@@ -5,6 +5,7 @@ exports.index = async (req, res, next) => {
     const messages = await Message.find()
       .sort([["timestamp", "descending"]])
       .populate("user");
+    console.log(messages);
     return res.render("index", {
       title: "Members Only",
       user: req.user,
