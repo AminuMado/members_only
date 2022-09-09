@@ -214,14 +214,15 @@ input[type="radio"]:checked + label img {
   flex-direction: column;
   align-items: center;
   position: relative;
-  width: 40em;
+  max-width: 40em;
+  min-width: 26em;
   min-height: 8em;
   padding: 18px;
   margin: 5px;
   border-radius: 18px;
   background: rgb(229 231 235);
   padding: 10px 80px;
-  gap: 5px;
+  gap: 10px;
 }
 .message__delete {
   width: 2em;
@@ -241,6 +242,9 @@ input[type="radio"]:checked + label img {
   top: -65px;
   left: -65px;
 }
+.message__avatar-blurred {
+  filter: blur(10px);
+}
 .message__username {
   align-self: flex-start;
   font-size: larger;
@@ -257,6 +261,7 @@ input[type="radio"]:checked + label img {
 }
 .message__timestamp {
   align-self: flex-end;
+  font-size: small;
 }
 /* Profile */
 .profile-container {
