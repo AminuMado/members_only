@@ -12,7 +12,6 @@ exports.login_get = (req, res) => {
 exports.login_post = passport.authenticate("local", {
   successRedirect: "/",
   failureRedirect: "/login",
-  failureFlash: true,
 });
 
 /* Log Out. */
@@ -63,7 +62,6 @@ exports.signup_post = [
     if (!errors.isEmpty()) {
       return res.render("signup_form", {
         errors: errors.array(),
-        success: [],
         title: "Sign Up",
         user: req.locals.currentUser,
       });
@@ -73,7 +71,6 @@ exports.signup_post = [
     if (takenUsername.length > 0) {
       return res.render("signup_form", {
         errors: [{ msg: "username already taken" }],
-        success: [],
         title: "Sign Up",
       });
     }
@@ -89,10 +86,7 @@ exports.signup_post = [
     // we can save the newly created user in our database
     user.save((err) => {
       if (err) return next(err);
-      res.render("signup_form", {
-        errors: [],
-        success: [{ msg: "You signed up successfully, please log in" }],
-      });
+      res.redirect("/login");
     });
   },
 ];
