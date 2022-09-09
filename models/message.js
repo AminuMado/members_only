@@ -16,6 +16,20 @@ messageSchema.virtual("timestamp_formatted").get(function () {
   return this.timestamp.toLocaleString("en-CA");
 });
 
+messageSchema.virtual("timestamp_calendar").get(function () {
+  return this.timestamp.toLocaleString("en-CA").slice(0, 10);
+});
+
+messageSchema.virtual("timestamp_time").get(function () {
+  if (this.timestamp.toLocaleString("en-CA").length == 25) {
+    const hour = this.timestamp.toLocaleString("en-CA").slice(11, 17);
+    const ampm = this.timestamp.toLocaleString("en-CA").slice(20, 24);
+    return hour + " " + ampm;
+  }
+  const hour = this.timestamp.toLocaleString("en-CA").slice(11, 16);
+  const ampm = this.timestamp.toLocaleString("en-CA").slice(19, 24);
+  return hour + " " + ampm;
+});
 // Create a model
 const Message = mongoose.model("Message", messageSchema);
 
