@@ -6,7 +6,8 @@
     "node": "v16.13.2"
   },
   "scripts": {
-    "start": "./bin/www"
+    "start": "./bin/www",
+    "devstart": "nodemon ./bin/www"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
