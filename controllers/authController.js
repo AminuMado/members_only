@@ -63,7 +63,7 @@ exports.signup_post = [
       return res.render("signup_form", {
         errors: errors.array(),
         title: "Sign Up",
-        user: req.locals.currentUser,
+        user: res.locals.currentUser,
       });
     }
     // Check if the username from the request is in the database.
