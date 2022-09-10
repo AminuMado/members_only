@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="#">
+  <a href="https://safe-reef-27144.herokuapp.com/">
     <h1 align="center">Members Only</h1>
   </a>
 </p>
@@ -20,4 +20,4 @@ While a relational database is a good choice and a pretty strong all-rounder, I 
 
 ---
 
-**SECRET:** The Odin Project
+**SECRET Password:** TheOdinProject
