@@ -23,6 +23,7 @@ exports.profile_post = [
   //Process request after validation and sanitization
 
   async (req, res, next) => {
+    if (!res.locals.currentUser) return res.redirect("/profile");
     try {
       // Extract the validation errors from a request
       const errors = validationResult(req);

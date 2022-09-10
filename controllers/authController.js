@@ -57,6 +57,8 @@ exports.signup_post = [
 
   //Process request after validation and sanitization
   async (req, res, next) => {
+    if (res.locals.currentUser) return res.redirect("/signup");
+
     // Extract the validation errors from a request
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

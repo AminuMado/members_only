@@ -31,7 +31,7 @@ exports.create_message_post = [
         errors: errors.array(),
       });
     }
-
+    if (!res.locals.currentUser) return res.redirect("/create-message");
     const message = new Message({
       user: req.user._id,
       title: req.body.title,
@@ -56,6 +56,7 @@ exports.delete_message_get = async (req, res, next) => {
 };
 exports.delete_message_post = async (req, res, next) => {
   try {
+    if (!res.locals.currentUser) return res.redirect("/");
     // Remove the message using the id from the database
     await Message.findByIdAndRemove(req.body.messageId);
     // Success... Message has been deleted, go to homepage
