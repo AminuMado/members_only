@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://safe-reef-27144.herokuapp.com/">
+  <a href="https://members-only-aminumado.herokuapp.com/">
     <h1 align="center">Members Only</h1>
   </a>
 </p>
